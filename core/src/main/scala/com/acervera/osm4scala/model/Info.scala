@@ -25,16 +25,11 @@
 
 package com.acervera.osm4scala.model
 
-object OSMTypes extends Enumeration {
-  type osmType = Value
-  val Way, Node, Relation = Value
-}
-
-trait OSMEntity {
-
-  val osmModel: OSMTypes.Value
-  val id: Long
-  val tags: Map[String, String]
-  val info: Option[Info]
-
-}
+case class Info(
+  timestamp: Option[Long],
+  changeset: Option[Long],
+  uid: Option[Int],
+  userSID: Option[Long],
+  visible: Option[Boolean],
+  version: Int = -1,
+)
